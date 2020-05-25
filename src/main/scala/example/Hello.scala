@@ -22,14 +22,14 @@ object Hello extends App {
     def a: Person = Person("a", "b")
   }
 
-  val k = classOf[Person]
-  val klass = Reflector.scalaTypeOf(k)
-  val descriptor = Reflector.describe(klass).asInstanceOf[reflect.ClassDescriptor]
-  System.out.println(descriptor.constructors.map(_.params.length.toString).mkString(","))
+  System.out.println("#371, https://github.com/json4s/json4s/issues/371")
+    val k = classOf[Person]
+    val klass = Reflector.scalaTypeOf(k)
+    val descriptor = Reflector.describe(klass).asInstanceOf[reflect.ClassDescriptor]
+    System.out.println(descriptor.constructors.map(_.params.length.toString).mkString(","))
 
-
-  val parsed = parse("""{"firstName": "Stephen", "lastName": "Falken"}""")
-  val person = org.json4s.Extraction.extractOpt[Person](parsed).get
- 
-  System.out.println(s"Greetings, Professor ${person.lastName}")
+  // System.out.println("other, yet to be reported")
+    // val parsed = parse("""{"firstName": "Stephen", "lastName": "Falken"}""")
+    // val person = org.json4s.Extraction.extractOpt[Person](parsed).get
+    // System.out.println(s"Greetings, Professor ${person.lastName}")
 }
