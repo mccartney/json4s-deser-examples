@@ -16,8 +16,11 @@ object Hello extends App {
                     friendliness: Friendliness = Friendliness("high"),
                     age: Int = 40
                    ) {
-    def this(unrelated: Int, weird: Boolean) = this("John", "Doe", Friendliness("not much"))                   
- }
+    def this(unrelated: Friendliness, weird: Boolean) = this("John", "Doe", Friendliness("not much"))
+  }
+  object Person {
+    def a: Person = Person("a", "b")
+  }
 
   val k = classOf[Person]
   val klass = Reflector.scalaTypeOf(k)
